@@ -1,0 +1,12 @@
+/* Card.css */
+.card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* When .in-view is added, the card will move up & fade in */
+.card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}

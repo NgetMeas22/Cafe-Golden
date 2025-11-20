@@ -14,8 +14,10 @@ const AppRoute = () => {
             {/* notfound */}
                 <Route path='*' element={<Notfound/>}/>
                 <Route path='/' element={<Home/>}/>
-                <Route path='/about' element={<About/>}/>
                 <Route path='/menu' element={<Menu/>}/>
+                <Route path='/about' element={<About/>}/>
+                
+                
                  {/* Detail page */}
                 <Route path='/product/detail/:id' element={<ProductDetail/>}/>
 
