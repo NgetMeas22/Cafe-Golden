@@ -1,10 +1,10 @@
 import React from 'react'
-import Card from '../Main/Product/Card'
+import Productcard from '../Main/Product/Productcard'
 
 const Menu = () => {
   return (
     <div>
-      <Card/>
+      <Productcard/>
     </div>
   )
 }

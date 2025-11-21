@@ -5,6 +5,7 @@ import About from '../page/About'
 import Notfound from '../Notfound/Notfound'
 import Menu from '../page/Menu'
 import ProductDetail from '../Main/Product/ProductDetail'
+import { Contact } from '../page/Contact'
 
 const AppRoute = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoute = () => {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/menu' element={<Menu/>}/>
                 <Route path='/about' element={<About/>}/>
+                <Route path='/contact' element={<Contact/>}/>
                 
                 
                  {/* Detail page */}

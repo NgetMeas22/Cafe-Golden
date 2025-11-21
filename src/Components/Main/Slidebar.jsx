@@ -15,7 +15,11 @@ import slide5 from "../../assets/image/Slide5.jpg";
 // ------------------ AutoType ------------------
 
 const AutoType = () => {
-  const texts = ["Best Coffee in Town","Discover Your Favorite Drink", "Made Fresh for Your"];
+  const texts = [
+    "Best Coffee in Town",
+    "Discover Your Favorite Drink",
+    "Made Fresh for Your",
+  ];
   const [ti, setTi] = useState(0);
   const [i, setI] = useState(0);
   const [isT, setIsT] = useState(true);
@@ -46,9 +50,6 @@ const AutoType = () => {
     </h1>
   );
 };
-
-// ------------------ Slidebar ------------------
-
 const slides = [
   { id: 1, src: slide1 },
   { id: 2, src: slide2 },
@@ -72,7 +73,6 @@ export default function Slidebar() {
         {slides.map((item, index) => (
           <SwiperSlide key={item.id}>
             <div className="relative w-full h-[50vh] sm:h-[50vh] md:h-[50vh] lg:h-screen">
-              
               <img
                 src={item.src}
                 alt={`slide ${index + 1}`}
@@ -82,7 +82,7 @@ export default function Slidebar() {
               {/* Buttons */}
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-5 w-full max-w-[220px]">
                 <Link
-                  to="/menu"
+                  to="/"
                   className="flex-1 bg-amber-900 text-white lg:p-3 py-2 text-center text-sm rounded-md hover:bg-amber-700 transition shadow-md"
                 >
                   View Menu
@@ -92,7 +92,7 @@ export default function Slidebar() {
                   to="/menu"
                   className="flex-1 bg-gray-500 text-white lg:p-3 py-2 text-center text-sm rounded-md hover:bg-gray-600 transition shadow-md"
                 >
-                  Order Now
+                  Contact Buy
                 </Link>
               </div>
 
@@ -101,16 +101,15 @@ export default function Slidebar() {
                 <h1 className="text-2xl md:text-7xl font-bold mb-3">
                   Welcome to our Café Shop!
                 </h1>
-                 {/* AutoType inside slide */}
+                {/* AutoType inside slide */}
                 <AutoType />
 
                 <p className="text-sm md:text-2xl lg:py-5 leading-relaxed text-gray-300">
-                  We serve fresh coffee, delicious drinks, and great food every day.
-                  Our café is a cozy place to relax, study, or meet friends.
+                  We serve fresh coffee, delicious drinks, and great food every
+                  day. Our café is a cozy place to relax, study, or meet
+                  friends.
                 </p>
-               
               </div>
-
             </div>
           </SwiperSlide>
         ))}

@@ -29,17 +29,22 @@ const Card = ({ product }) => {
   }, [product]);
 
   return (
-    <div className="w-full">
-      <h1 className="text-amber-300 text-center font-medium mb-3 mt-10 text-xl md:text-xl lg:text-xl">
-        Our Selection
-      </h1>
-      <h1 className="text-amber-500 text-center mb-3 font-medium text-3xl md:text-4xl lg:text-5xl">
-        Best Sellers
-      </h1>
-      
-      <h1 className="text-gray-400 text-center  m-5 text-1xl md:text-xl lg:text-lg">
-        Each batch of our coffee beans is carefully roasted to bring out their unique flavors and aromas.
-      </h1>
+    <div className="w-full ">
+      <div className=" w-full  py-7">
+        <h1 className="text-amber-300 text-center mb-2 font-medium text-xl md:text-xl lg:text-xl">
+          Our Selection
+        </h1>
+        <h1 className="text-amber-500 text-center mb-3 font-medium text-3xl md:text-4xl lg:text-5xl">
+          Best Sellers
+        </h1>
+
+        <hr className="my-6 w-[150px] lg:w-[200px] mx-auto border-0 h-0.5 bg-linear-to-r from-transparent via-amber-800 to-transparent" />
+
+        <h1 className="text-gray-400 text-center  m-5 text-1xl md:text-xl lg:text-lg">
+          Each batch of our coffee beans is carefully roasted to bring out their
+          unique flavors and aromas.
+        </h1>
+      </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
         {product.map((item, index) => (
@@ -67,7 +72,9 @@ const Card = ({ product }) => {
                 {item.aboutcafe}
               </p>
 
-              <p className="text-lg font-bold text-amber-600 mt-2">${item.price}</p>
+              <p className="text-lg font-bold text-amber-600 mt-2">
+                ${item.price}
+              </p>
 
               <button className="mt-3 bg-blue-500 w-full text-white py-2 rounded-lg font-medium hover:bg-blue-600 transition-all">
                 Add To Cart

@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import "./Footer.css";
 
-export default function CafeFooter() {
+export default function Footer() {
   const nav = [
     { name: "Home", href: "/" },
     { name: "Menu", href: "/menu" },
@@ -42,7 +42,7 @@ export default function CafeFooter() {
   }, []);
 
   return (
-    <footer className="bg-slate-700 text-slate-100">
+    <footer className="bg-slate-700 text-slate-100 ">
       <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand + short */}
@@ -79,6 +79,7 @@ export default function CafeFooter() {
               >
                 <FaTwitter />
               </a>
+           
             </div>
           </div>
 
@@ -92,7 +93,10 @@ export default function CafeFooter() {
             <ul className="mt-3 space-y-2 text-lg">
               {nav.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="hover:underline hover:opacity-90">
+                  <a
+                    href={item.href}
+                    className="hover:underline hover:opacity-90"
+                  >
                     {item.name}
                   </a>
                 </li>
@@ -120,7 +124,10 @@ export default function CafeFooter() {
               </div>
               <div className="flex items-center gap-2">
                 <FaEnvelope />
-                <a href="mailto:measm2519@gmail.com" className="hover:underline">
+                <a
+                  href="mailto:measm2519@gmail.com"
+                  className="hover:underline"
+                >
                   measm2519@gmail.com
                 </a>
               </div>
@@ -144,7 +151,10 @@ export default function CafeFooter() {
               Get special deals and seasonal menus — once or twice a month.
             </p>
 
-            <form className="mt-4 flex gap-2" onSubmit={(e) => e.preventDefault()}>
+            <form
+              className="mt-4 flex gap-2"
+              onSubmit={(e) => e.preventDefault()}
+            >
               <label htmlFor="email" className="sr-only">
                 Email
               </label>
@@ -188,10 +198,16 @@ export default function CafeFooter() {
           className="border-t border-slate-800 mt-10 pt-6 text-lg flex flex-col md:flex-row md:justify-between md:items-center gap-3 footer-elem"
           style={{ transitionDelay: "400ms" }}
         >
-          <p className=" lg:text-1xl text-sm">© {new Date().getFullYear()} Café Golden Léaf — All rights reserved.</p>
+          <p className=" lg:text-1xl text-sm">
+            © {new Date().getFullYear()} Café Golden Léaf — All rights reserved.
+          </p>
           <div className="flex items-center gap-4 ">
-            <a href="/privacy" className="hover:underline text-sm lg:text-1xl ">Privacy</a>
-            <a href="/terms" className="hover:underline text-sm lg:text-1xl">Terms</a>
+            <a href="/privacy" className="hover:underline text-sm lg:text-1xl ">
+              Privacy
+            </a>
+            <a href="/terms" className="hover:underline text-sm lg:text-1xl">
+              Terms
+            </a>
           </div>
         </div>
       </div>
