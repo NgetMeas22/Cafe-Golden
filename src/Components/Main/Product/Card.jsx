@@ -14,7 +14,7 @@ const Card = ({ product }) => {
           if (entry.isIntersecting) {
             // add class once
             entry.target.classList.add("in-view");
-            observer.unobserve(entry.target); // stop observing so it won't re-trigger on drag/scroll
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -46,7 +46,7 @@ const Card = ({ product }) => {
         </h1>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
         {product.map((item, index) => (
           <Link
             key={item.id}
@@ -64,7 +64,6 @@ const Card = ({ product }) => {
                 alt={item.name}
               />
             </div>
-
             <div className="p-4">
               <p className="text-xl font-semibold lg:text-2xl">{item.name}</p>
 
@@ -76,7 +75,8 @@ const Card = ({ product }) => {
                 ${item.price}
               </p>
 
-              <button className="mt-3 bg-blue-500 w-full text-white py-2 rounded-lg font-medium hover:bg-blue-600 transition-all">
+              <button 
+               className="mt-3 bg-blue-500 w-[20vh] text-white py-2 rounded-lg font-medium hover:bg-blue-600 transition-all">
                 Add To Cart
               </button>
             </div>

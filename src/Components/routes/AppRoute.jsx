@@ -6,6 +6,7 @@ import Notfound from '../Notfound/Notfound'
 import Menu from '../page/Menu'
 import ProductDetail from '../Main/Product/ProductDetail'
 import { Contact } from '../page/Contact'
+import OurStory from '../page/OurStory'
 
 const AppRoute = () => {
   return (
@@ -18,6 +19,7 @@ const AppRoute = () => {
                 <Route path='/menu' element={<Menu/>}/>
                 <Route path='/about' element={<About/>}/>
                 <Route path='/contact' element={<Contact/>}/>
+                <Route path='/ourstory' element={<OurStory/>}/>
                 
                 
                  {/* Detail page */}

@@ -1,11 +1,3 @@
-// Navigation Menu
-export const menu = [
-  { menu: "Home", url: "/" },
-  { menu: "About", url: "/about" },
-  { menu: "Menu", url: "/menu" },
-  { menu: "Contact", url: "/contact" },
-];
-
 // Image Imports
 import Cafe1 from "./assets/image/Card1.jpg";
 import Cafe2 from "./assets/image/Card2.jpg";
@@ -73,5 +65,7 @@ export const products = [
     name: "Iced Coffee",
     aboutcafe: "Chilled brewed coffee over ice.",
     price: 2.5,
+
+    
   },
 ];

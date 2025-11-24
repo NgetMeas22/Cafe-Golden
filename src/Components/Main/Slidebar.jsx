@@ -82,14 +82,14 @@ export default function Slidebar() {
               {/* Buttons */}
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-5 w-full max-w-[220px]">
                 <Link
-                  to="/"
+                  to="/menu"
                   className="flex-1 bg-amber-900 text-white lg:p-3 py-2 text-center text-sm rounded-md hover:bg-amber-700 transition shadow-md"
                 >
                   View Menu
                 </Link>
 
                 <Link
-                  to="/menu"
+                  to="/contact"
                   className="flex-1 bg-gray-500 text-white lg:p-3 py-2 text-center text-sm rounded-md hover:bg-gray-600 transition shadow-md"
                 >
                   Contact Buy

@@ -16,13 +16,10 @@ export default function Footer() {
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
-
   // refs for each footer block
   const blocksRef = useRef([]);
-
   useEffect(() => {
     blocksRef.current = blocksRef.current.slice(0, 6); // number of blocks we will observe
-
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
@@ -34,7 +31,6 @@ export default function Footer() {
       },
       { threshold: 0.12 }
     );
-
     blocksRef.current.forEach((el) => {
       if (el) observer.observe(el);
     });
@@ -161,7 +157,7 @@ export default function Footer() {
               <input
                 id="email"
                 type="email"
-                placeholder="you@example.com"
+                placeholder="yourgmail.com"
                 required
                 className="flex-1 border rounded-md px-3 py-2 text-white"
               />
@@ -182,14 +178,14 @@ export default function Footer() {
           className="mt-10 border-t border-slate-800 flex md:flex-row items-center gap-5 md:gap-10 text-center pt-7 footer-elem footer-bottom-elem"
           style={{ transitionDelay: "320ms" }}
         >
-          <img
+          {/* <img
             src="./src/assets/image/profile.jpg"
             alt="Creator Profile"
             className="w-20 h-20 md:w-28 md:h-28 rounded-full object-cover border border-slate-700"
           />
           <p className="text-xs lg:text-xl opacity-900">
             Website created by <span className="font-medium">NGET MEAS</span>
-          </p>
+          </p> */}
         </div>
 
         {/* Footer Bottom */}

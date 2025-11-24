@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
+import { PiShoppingCart } from "react-icons/pi";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -44,6 +45,19 @@ export default function Navbar() {
           onChange={(e) => setSearch(e.target.value)}
           className="border border-white px-3 py-2 rounded-xl w-[220px] text-white outline-none focus:ring-1 focus:ring-yellow-500"
         />
+        <ul>
+          <li className="w-[50px] h-[50px] ml-3  flex items-center justify-evenly">
+              <PiShoppingCart
+                className="text-4xl cursor-pointer text-amber-400 hover:scale-110 transition-transform duration-300"
+                // onClick={toggleCart}
+              />
+              {/* {cart.length > 0 && (
+                <span className="absolute -top-1 left-5 bg-red-600 text-white text-xs w-2 h-2 flex items-center justify-center rounded-full">
+                   {cart.length}
+                </span>
+              )} */}
+            </li>
+        </ul>
       </nav>
 
       {/* Mobile screen */}
@@ -89,6 +103,7 @@ export default function Navbar() {
             className="fixed top-0 right-0 w-1/2 h-screen bg-black/20"
             onClick={() => setOpen(false)}
           />
+        
         )}
       </div>
     </div>
