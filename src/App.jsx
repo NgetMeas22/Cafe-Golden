@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MainLayout from './Components/Layouts/MainLayout'
-
+import { CartProvider } from './Components/Context/CartContext';
+import { BrowserRouter } from 'react-router-dom';
 const App = () => {
+  const [cartOpen, setCartOpen]=useState(false);
+  const toggleCart =()=> setCartOpen(!cartOpen);
+
   return (
-    <div className='box-border m-0 p-0'>
-        <MainLayout/>
+
+    <CartProvider >
+        <BrowserRouter>
+           <MainLayout toggleCart={toggleCart} cartOpen={cartOpen}/>
+        </BrowserRouter>
       
-    </div>
+    </CartProvider>
   )
 }
 

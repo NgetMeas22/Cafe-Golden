@@ -178,14 +178,14 @@ export default function Footer() {
           className="mt-10 border-t border-slate-800 flex md:flex-row items-center gap-5 md:gap-10 text-center pt-7 footer-elem footer-bottom-elem"
           style={{ transitionDelay: "320ms" }}
         >
-          {/* <img
+            <img
             src="./src/assets/image/profile.jpg"
             alt="Creator Profile"
             className="w-20 h-20 md:w-28 md:h-28 rounded-full object-cover border border-slate-700"
           />
           <p className="text-xs lg:text-xl opacity-900">
             Website created by <span className="font-medium">NGET MEAS</span>
-          </p> */}
+          </p>
         </div>
 
         {/* Footer Bottom */}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Home from '../page/Home'
 import About from '../page/About'
 import Notfound from '../Notfound/Notfound'
@@ -10,8 +10,8 @@ import OurStory from '../page/OurStory'
 
 const AppRoute = () => {
   return (
-    <div>
-        <BrowserRouter>
+    
+        <>
            <Routes>
             {/* notfound */}
                 <Route path='*' element={<Notfound/>}/>
@@ -26,8 +26,7 @@ const AppRoute = () => {
                 <Route path='/product/detail/:id' element={<ProductDetail/>}/>
 
            </Routes>
-        </BrowserRouter>
-    </div>
+        </>
   )
 }
 

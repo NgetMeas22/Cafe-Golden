@@ -1,11 +1,13 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
 import { PiShoppingCart } from "react-icons/pi";
+import { CartContext } from "../Context/CartContext";
 
-export default function Navbar() {
+export default function Navbar({ toggleCart }) {
   const [open, setOpen] = useState(false);
-  const [search, setSearch] = useState("");
-
+  const [search, setSearch] = useState([]);
+  const { cart } = useContext(CartContext);
   const nav = [
     { name: "Home", href: "/" },
     { name: "Menu", href: "/menu" },
@@ -47,16 +49,16 @@ export default function Navbar() {
         />
         <ul>
           <li className="w-[50px] h-[50px] ml-3  flex items-center justify-evenly">
-              <PiShoppingCart
-                className="text-4xl cursor-pointer text-amber-400 hover:scale-110 transition-transform duration-300"
-                // onClick={toggleCart}
-              />
-              {/* {cart.length > 0 && (
-                <span className="absolute -top-1 left-5 bg-red-600 text-white text-xs w-2 h-2 flex items-center justify-center rounded-full">
-                   {cart.length}
-                </span>
-              )} */}
-            </li>
+            <PiShoppingCart
+              className="text-4xl cursor-pointer text-amber-400 hover:scale-110 transition-transform duration-300"
+              onClick={toggleCart}
+            />
+            {cart.length > 0 && (
+              <span className="absolute -top-1 left-5 bg-red-600 text-white text-xs w-2 h-2 flex items-center justify-center rounded-full">
+                {cart.length}
+              </span>
+            )}
+          </li>
         </ul>
       </nav>
 
@@ -103,7 +105,6 @@ export default function Navbar() {
             className="fixed top-0 right-0 w-1/2 h-screen bg-black/20"
             onClick={() => setOpen(false)}
           />
-        
         )}
       </div>
     </div>
