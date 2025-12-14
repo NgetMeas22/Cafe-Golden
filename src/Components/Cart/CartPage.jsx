@@ -1,61 +1,118 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
+import Qr from "../Cart/Qr.jpg";
 
 const CartPage = ({ isOpen, closeCart }) => {
   const { cart, removeFromCart } = useContext(CartContext);
+  const [showCheckout, setShowCheckout] = useState(false);
 
   const total = cart.reduce(
-    (acc, item) => acc + item.price * item.quantity,
+    (acc, item) => acc + item.price * (item.quantity || 1),
     0
   );
 
+  const handleCheckout = () => setShowCheckout(true);
+  const handleCloseModal = () => setShowCheckout(false);
+
   return (
-    <div
-      className={`
-        fixed top-0 right-0 h-screen w-[300px] bg-white shadow-lg z-50
-        transform transition-transform duration-500
-        ${isOpen ? "translate-x-0" : "translate-x-full"}
-      `}
-    >
-      {/* Header */}
-      <div className="flex justify-between p-4 border-b">
-        <h2 className="text-xl font-bold">🛒 My Cart</h2>
-        <button onClick={closeCart} className="text-2xl">&times;</button>
-      </div>
+    <>
+      <div
+        className={`
+          fixed top-0 right-0 h-screen w-[250px] md:w-[400px] bg-white shadow-lg z-50
+          transform transition-transform duration-500 ease-in-out
+          ${isOpen ? "translate-x-0" : "translate-x-full"}
+        `}
+      >
+        {/* Header */}
+        <div className="flex justify-between items-center p-6 border-b">
+          <h1 className="text-2xl font-bold">🛒 My Cart</h1>
+          <button
+            onClick={closeCart}
+            className="text-2xl cursor-pointer font-bold hover:text-red-500"
+          >
+            &times;
+          </button>
+        </div>
 
-      {/* Items */}
-      <div className="p-4">
-        {cart.length === 0 ? (
-          <p>No items in cart</p>
-        ) : (
-          cart.map((item, index) => (
-            <div key={index} className="flex gap-3 mb-4 border-b pb-3">
-              <img
-                src={item.img}
-                alt={item.name}
-                className="w-16 h-16 object-contain"
-              />
-              <div className="flex-1">
-                <p className="font-semibold">{item.name}</p>
-                <p>Size: {item.size}</p>
-                <p>Qty: {item.quantity}</p>
-                <p>${(item.price * item.quantity).toFixed(2)}</p>
-              </div>
-              <button
-                onClick={() => removeFromCart(item.id)}
-                className="text-red-500"
+        {/* Cart Items */}
+        <div className="p-6 overflow-y-auto h-[calc(100%-80px)]">
+          {cart.length === 0 ? (
+            <p className="text-gray-500">No items in cart</p>
+          ) : (
+            cart.map((item, index) => (
+              <div
+                key={index}
+                className="flex gap-4 items-center mb-4 border-b pb-4"
               >
-                Remove
-              </button>
-            </div>
-          ))
-        )}
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="w-20 h-20 object-contain rounded"
+                />
+                <div className="flex-1">
+                  <h2 className="font-semibold">{item.name}</h2>
+                  <p>Price: ${item.price.toFixed(2)}</p>
+                  <p>Quantity: {item.quantity || 1}</p>
+                  <p>Total: ${(item.price * (item.quantity || 1)).toFixed(2)}</p>
+                </div>
 
-        <h3 className="font-bold mt-4">
-          Total: ${total.toFixed(2)}
-        </h3>
+                <button
+                  onClick={() => removeFromCart(item.id)}
+                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+                >
+                  Remove
+                </button>
+              </div>
+            ))
+          )}
+
+          {/* Subtotal, Delivery, Total */}
+          <div className="mt-6 border-t pt-4 space-y-2">
+            <div className="flex justify-between">
+              <span>Subtotal</span>
+              <span>${total.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Delivery</span>
+              <span>$1.00</span>
+            </div>
+            <div className="flex justify-between font-bold text-lg">
+              <span>Total</span>
+              <span>${(total + 1.0).toFixed(2)}</span>
+            </div>
+          </div>
+
+          {/* Checkout Button */}
+          <button
+            onClick={handleCheckout}
+            className="w-full mt-4 bg-green-600 text-white py-3 rounded hover:bg-green-700 transition"
+          >
+            Proceed to Checkout
+          </button>
+        </div>
       </div>
-    </div>
+
+      {/* Checkout Modal */}
+      {showCheckout && (
+        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded shadow-lg text-center relative w-80">
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-2 right-2 text-lg font-bold hover:text-red-500"
+            >
+              &times;
+            </button>
+            <h2 className="text-2xl font-bold mb-2">Thank for Order</h2>
+            <h5 className="text-lg mb-4">Nice to meet you</h5>
+            <img
+              src={Qr}
+              alt="ABA QR Code"
+              className="mx-auto w-100 h-90"
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

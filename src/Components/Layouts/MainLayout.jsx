@@ -1,8 +1,8 @@
 import React from 'react'
 import CartPage from '../Cart/CartPage'
 import AppRoute from '../routes/AppRoute'
-import Footer from '../Footer/footer'
 import Navbar from '../Navbar/Navbar'
+import Footer from '../Footer/Footer'
 const MainLayout = ({toggleCart,cartOpen}) => {
   return (
     <div>
