@@ -184,7 +184,7 @@ export default function Footer() {
             className="w-20 h-20 md:w-28 md:h-28 rounded-full object-cover border border-slate-700"
           />
           <p className="text-xs lg:text-xl opacity-900">
-            Website created by <span className="font-medium">NGET MEAS</span>
+            Website build by <span className="font-medium">NGET MEAS</span>
           </p>
         </div>
 

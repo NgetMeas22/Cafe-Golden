@@ -113,14 +113,7 @@ const CartPage = ({ isOpen, closeCart }) => {
             <h5 className="text-lg mb-2">Nice to meet you</h5>
 
             {/* Currency Selector */}
-            <select
-              value={currency}
-              onChange={(e) => setCurrency(e.target.value)}
-              className="border rounded p-0 mb-1"
-            >
-              <option value="USD">USD</option>
-              <option value="KHR">៛ KHR</option>
-            </select>
+            
 
             {/* QR Image */}
             <img
@@ -128,6 +121,14 @@ const CartPage = ({ isOpen, closeCart }) => {
               alt={`${currency} QR Code`}
               className="mx-auto w-64 h-64 object-cover p-2"
             />
+            <select
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
+              className="border-0 rounded px-10 mt-3 "
+            >
+              <option value="USD">$ USD</option>
+              <option value="KHR">៛ KHR</option>
+            </select>
           </div>
         </div>
       )}
