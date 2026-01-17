@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
-import Qr from "../Cart/Qr.jpg"; // your QR image
+import QrUSD from "../Cart/Qr.jpg";   // USD QR
+import QrKHR from "../Cart/Qrkh.jpg"; // KHR QR
 
 const CartPage = ({ isOpen, closeCart }) => {
   const { cart, removeFromCart } = useContext(CartContext);
   const [showCheckout, setShowCheckout] = useState(false);
+  const [currency, setCurrency] = useState("USD"); // <-- add this
 
   const total = cart.reduce(
     (acc, item) => acc + item.price * (item.quantity || 1),
@@ -14,8 +16,12 @@ const CartPage = ({ isOpen, closeCart }) => {
   const handleCheckout = () => setShowCheckout(true);
   const handleCloseModal = () => setShowCheckout(false);
 
+  // select QR image based on currency
+  const qrImage = currency === "USD" ? QrUSD : QrKHR;
+
   return (
     <>
+      {/* Cart Sidebar */}
       <div
         className={`
           fixed top-0 right-0 h-screen w-[250px] md:w-[400px] bg-white shadow-lg z-50
@@ -95,20 +101,32 @@ const CartPage = ({ isOpen, closeCart }) => {
 
       {/* Checkout Modal */}
       {showCheckout && (
-        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
-          <div className=" bg-gray-100 rounded shadow-lg text-center relative w-80">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-gray-100 rounded shadow-lg text-center relative w-100 p-4">
             <button
               onClick={handleCloseModal}
               className="absolute top-2 right-2 text-xl font-bold hover:text-red-500"
             >
               &times;
             </button>
-            <h2 className="text-2xl font-bold mt-2 p-2 ">Thank for Order</h2>
+            <h2 className="text-2xl font-bold mt-2 p-2">Thank you for your order</h2>
             <h5 className="text-lg mb-2">Nice to meet you</h5>
+
+            {/* Currency Selector */}
+            <select
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
+              className="border rounded p-0 mb-1"
+            >
+              <option value="USD">USD</option>
+              <option value="KHR">៛ KHR</option>
+            </select>
+
+            {/* QR Image */}
             <img
-              src={Qr}
-              alt="ABA QR Code"
-              className="mx-auto w-100 h-90 object-cover p-2"
+              src={qrImage}
+              alt={`${currency} QR Code`}
+              className="mx-auto w-64 h-64 object-cover p-2"
             />
           </div>
         </div>
