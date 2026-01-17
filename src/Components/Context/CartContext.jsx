@@ -10,15 +10,19 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     setCart((prev) => [...prev, product]);
 
-    Swal.fire({
-      title: "✔️ Added!",
-      text: `${product.name} has been added to cart.`,
-      icon: "success",
-      showConfirmButton: false,
-      timer: 2000,
-      toast: true,
-      position: "top-end",
-    });
+   Swal.fire({
+  toast: true,
+  position: "top-end",
+  icon: "success",
+  title: "Added to cart!",
+  text: `${product.name} has been added.`,
+  showConfirmButton: false,
+  timer: 1500,
+  timerProgressBar: true,
+  background: "#e6fffa",
+  color: "#065f46",
+});
+
   };
 
   // Remove item (remove one only)

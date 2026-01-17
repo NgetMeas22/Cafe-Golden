@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
-import Qr from "../Cart/Qr.jpg";
+import Qr from "../Cart/Qr.jpg"; // your QR image
 
 const CartPage = ({ isOpen, closeCart }) => {
   const { cart, removeFromCart } = useContext(CartContext);
@@ -51,13 +51,14 @@ const CartPage = ({ isOpen, closeCart }) => {
                 />
                 <div className="flex-1">
                   <h2 className="font-semibold">{item.name}</h2>
+                  <p>Size: {item.size}</p>
                   <p>Price: ${item.price.toFixed(2)}</p>
                   <p>Quantity: {item.quantity || 1}</p>
                   <p>Total: ${(item.price * (item.quantity || 1)).toFixed(2)}</p>
                 </div>
 
                 <button
-                  onClick={() => removeFromCart(item.id)}
+                  onClick={() => removeFromCart(item.id, item.size)}
                   className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
                 >
                   Remove
@@ -95,19 +96,19 @@ const CartPage = ({ isOpen, closeCart }) => {
       {/* Checkout Modal */}
       {showCheckout && (
         <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg text-center relative w-80">
+          <div className=" bg-gray-100 rounded shadow-lg text-center relative w-80">
             <button
               onClick={handleCloseModal}
-              className="absolute top-2 right-2 text-lg font-bold hover:text-red-500"
+              className="absolute top-2 right-2 text-xl font-bold hover:text-red-500"
             >
               &times;
             </button>
-            <h2 className="text-2xl font-bold mb-2">Thank for Order</h2>
-            <h5 className="text-lg mb-4">Nice to meet you</h5>
+            <h2 className="text-2xl font-bold mt-2 p-2 ">Thank for Order</h2>
+            <h5 className="text-lg mb-2">Nice to meet you</h5>
             <img
               src={Qr}
               alt="ABA QR Code"
-              className="mx-auto w-100 h-90"
+              className="mx-auto w-100 h-90 object-cover p-2"
             />
           </div>
         </div>

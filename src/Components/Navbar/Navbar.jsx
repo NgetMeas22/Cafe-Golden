@@ -86,6 +86,19 @@ export default function Navbar({ toggleCart }) {
               onChange={(e) => setSearch(e.target.value)}
               className="border border-gray-300 p-2 text-[15px] rounded-lg w-[90%] outline-none"
             />
+            <ul>
+          <li className="w-[50px] h-[50px] ml-3  flex items-center justify-evenly">
+            <PiShoppingCart
+              className="text-3xl cursor-pointer text-amber-400 hover:scale-110 transition-transform duration-300"
+              onClick={toggleCart}
+            />
+            {cart.length > 0 && (
+              <span className="absolute -top-1 left-5 bg-red-600 text-white text-xs w-2 h-2 flex items-center justify-center rounded-full">
+                {cart.length}
+              </span>
+            )}
+          </li>
+        </ul>
 
             {nav.map((item) => (
               <li key={item.name}>
