@@ -9,6 +9,8 @@ import {
 } from "react-icons/fa";
 import "./Footer.css";
 
+import profile from "../../assets/image/profile.jpg";
+
 export default function Footer() {
   const nav = [
     { name: "Home", href: "/" },
@@ -177,12 +179,12 @@ export default function Footer() {
           ref={(el) => (blocksRef.current[4] = el)}
           className="mt-10 border-t border-slate-800 flex md:flex-row items-center gap-5 md:gap-10 text-center pt-7 footer-elem footer-bottom-elem"
           style={{ transitionDelay: "320ms" }}
-        >
-            <img
-            src="./src/assets/image/profile.jpg"
-            alt="Creator Profile"
-            className="w-20 h-20 md:w-28 md:h-28 rounded-full object-cover border border-slate-700"
-          />
+        > <img
+  src={profile}
+  alt="profile"
+  className="w-20 h-20 md:w-28 md:h-28 rounded-full object-cover border border-slate-700"
+/>
+
           <p className="text-xs lg:text-xl opacity-900">
             Website build by <span className="font-medium">NGET MEAS</span>
           </p>
